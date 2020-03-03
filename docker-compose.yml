@@ -1,0 +1,34 @@
+version:  '3'
+services:
+  notebook:
+      image:    jupyter/datascience-notebook
+      build: .
+      volumes:
+        - ${LOCAL_WORKING_DIR}:/home/jovyan/work/
+        - ${LOCAL_MODULES}:/home/jovyan/work/modules
+      ports:
+        - ${PORT}:8888
+      container_name:   notebook
+      command: "start-notebook.sh \
+        --NotebookApp.token=${ACCESS_TOKEN} "
+      links:
+        - mongodb_tiempo
+
+  mongodb_tiempo:
+    image: mongo:latest
+    container_name: "mongodb_tiempo"
+    environment:
+      - MONGO_DATA_DIR="/data/db"
+    volumes:
+      - ./data/dbmongo:/data/db
+    ports:
+        - "27017:27017"
+    command: mongod
+
+  metabase_tiempo:
+    image: metabase/metabase
+    container_name: "metabase_tiempo"
+    ports:
+        - "3000:3000"
+    links:
+        - mongodb_tiempo
