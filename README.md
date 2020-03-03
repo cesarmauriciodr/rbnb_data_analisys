@@ -5,9 +5,7 @@
 
 ## Metodologia
 
-
-
-Este Proyecto fue desarrollado con la Jupyter Notebook mediante la metodologia CRISP-DM (Cross Industry Standard Process for Data Mining),
+Este Proyecto fue desarrollado con las herramientas Jupyter Notebook, Metabase y mongodb, mediante la metodologia CRISP-DM (Cross Industry Standard Process for Data Mining),
 
 CRISP-DM se trata de un modelo estándar abierto del proceso que describe los enfoques comunes que utilizan los expertos en minería de datos. Es el modelo analítico más usado.
     
